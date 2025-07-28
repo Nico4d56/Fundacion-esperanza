@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Donante</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script>
+        function validarDonante() {
+            const email = document.getElementById('email').value;
+            if (!email.includes('@')) {
+                alert("Ingrese un correo electrónico válido.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Registrar Donante</h2>
+        <form method="POST" action="procesar_donante.php" onsubmit="return validarDonante();">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" name="nombre" id="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" name="direccion" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefono" required>
+
+            <input class="submit-btn" type="submit" value="Guardar Donante">
+        </form>
+    </div>
+</body>
+</html>

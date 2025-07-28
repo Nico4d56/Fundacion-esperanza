@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Proyecto</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script>
+        function validarProyecto() {
+            const nombre = document.getElementById('nombre').value;
+            const presupuesto = document.getElementById('presupuesto').value;
+            if (nombre.trim() === '' || presupuesto <= 0) {
+                alert("Por favor, ingrese un nombre válido y presupuesto mayor a cero.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Registrar Proyecto</h2>
+        <form method="POST" action="procesar_proyecto.php" onsubmit="return validarProyecto();">
+            <label for="nombre">Nombre del proyecto:</label>
+            <input type="text" name="nombre" id="nombre" required>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea name="descripcion" id="descripcion" rows="4" required></textarea>
+
+            <label for="presupuesto">Presupuesto (USD):</label>
+            <input type="number" name="presupuesto" id="presupuesto" min="1" required>
+
+            <label for="fecha_inicio">Fecha de inicio:</label>
+            <input type="date" name="fecha_inicio" required>
+
+            <label for="fecha_fin">Fecha de fin:</label>
+            <input type="date" name="fecha_fin" required>
+
+            <input class="submit-btn" type="submit" value="Guardar Proyecto">
+        </form>
+    </div>
+</body>
+</html>
